@@ -39,7 +39,7 @@ type PaymentInstruction struct {
 	PaymentID            string
 	NumberOfTransactions int
 	ControlSum           int
-	RequiredExcutionDate string
+	RequestedExcutionDate string
 	Debtor               Account
 }
 
