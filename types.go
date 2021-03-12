@@ -1,5 +1,7 @@
 package main
 
+import types "github.com/alanwade2001/spa-common"
+
 // Initiation s
 type Initiation struct {
 	ID                  string `bson:"_id"`
@@ -26,22 +28,10 @@ type Company struct {
 type Initiations []Initiation
 
 // GroupHeader s
-type GroupHeader struct {
-	MessageID            string
-	NumberOfTransactions int
-	ControlSum           int
-	CreationDateTime     string
-	InitiatingPartyID    string
-}
+type GroupHeader types.GroupHeader
 
 // PaymentInstruction s
-type PaymentInstruction struct {
-	PaymentID            string
-	NumberOfTransactions int
-	ControlSum           int
-	RequestedExcutionDate string
-	Debtor               Account
-}
+type PaymentInstruction types.PaymentInstruction
 
 // PaymentInstructions s
 type PaymentInstructions []PaymentInstruction
@@ -55,9 +45,5 @@ type WorkflowState struct {
 // WorkflowStates a
 type WorkflowStates []WorkflowState
 
-// Account s
-type Account struct {
-	IBAN string
-	BIC  string
-	Name string
-}
+// AccountReference s
+type AccountReference types.AccountReference
