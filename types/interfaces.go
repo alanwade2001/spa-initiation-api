@@ -1,6 +1,9 @@
-package main
+package types
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/alanwade2001/spa-initiation-api/generated/initiation"
+	"github.com/gin-gonic/gin"
+)
 
 // InitiationAPI i
 type InitiationAPI interface {
@@ -21,12 +24,12 @@ type RegisterAPI interface {
 
 // RepositoryAPI i
 type RepositoryAPI interface {
-	CreateInitiation(c *Initiation) (*Initiation, error)
-	GetInitiation(id string) (*Initiation, error)
-	GetInitiations() (*Initiations, error)
+	CreateInitiation(c *initiation.InitiationModel) (*initiation.InitiationModel, error)
+	GetInitiation(id string) (*initiation.InitiationModel, error)
+	GetInitiations() ([]*initiation.InitiationModel, error)
 }
 
 // ConfigAPI si
 type ConfigAPI interface {
-	Load() error
+	Load(path string) error
 }

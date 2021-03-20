@@ -4,17 +4,21 @@
 package main
 
 import (
+	"github.com/alanwade2001/spa-initiation-api/repositories"
+	"github.com/alanwade2001/spa-initiation-api/routers"
+	"github.com/alanwade2001/spa-initiation-api/services"
+	"github.com/alanwade2001/spa-initiation-api/types"
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
 )
 
-func InitialiseServerAPI() ServerAPI {
+func InitialiseServerAPI() types.ServerAPI {
 	wire.Build(
 		gin.Default,
-		NewMongoService,
-		NewInitiationRouter,
-		NewRegisterService,
-		NewConfigService,
+		repositories.NewMongoRepository,
+		routers.NewInitiationRouter,
+		routers.NewRegisterService,
+		services.NewConfigService,
 		NewServer,
 	)
 
