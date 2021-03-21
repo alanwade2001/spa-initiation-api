@@ -12,7 +12,7 @@ type ConfigService struct {
 // Load f
 func (cs ConfigService) Load(path string) error {
 
-	viper.AddConfigPath(".")
+	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
 	viper.SetConfigType("env")
 
